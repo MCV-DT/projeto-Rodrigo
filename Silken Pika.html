@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Silken Comunicação Visual — Araçatuba, SP</title>
+<meta name="description" content="Silken Comunicação Visual: fachadas, envelopamento, decoração, gráfica, serigrafia e brindes em Araçatuba-SP desde 1980.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --ink:#0A1622;
+  --ink-soft:#15273a;
+  --mat:#123257;
+  --mat-deep:#081627;
+  --grid:#4FD1F2;
+  --grid-soft:#4fd1f255;
+  --vinyl:#155FD1;
+  --vinyl-dark:#0E469E;
+  --paper:#EAEEF3;
+  --paper-2:#FFFFFF;
+  --steel:#56636F;
+  --steel-light:#8C97A1;
+  --line:#DAE1E8;
+  --maxw:1180px;
+  --notch:16px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Inter',sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{display:block;}
+a{color:inherit;text-decoration:none;}
+ul{margin:0;padding:0;list-style:none;}
+h1,h2,h3,h4{margin:0;font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-weight:400;}
+p{margin:0;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  font-weight:600;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+.mono{font-family:'IBM Plex Mono',monospace;}
+:focus-visible{outline:3px solid var(--vinyl);outline-offset:2px;}
+.skip-link{
+  position:absolute;left:-999px;top:0;background:var(--vinyl);color:#fff;padding:10px 16px;z-index:999;font-family:'IBM Plex Mono',monospace;font-size:13px;
+}
+.skip-link:focus{left:12px;top:12px;}
+
+/* registration mark (crosshair) — signature element */
+.regmark{width:18px;height:18px;flex:none;}
+.regmark circle{fill:none;stroke:currentColor;stroke-width:1.4;}
+.regmark line{stroke:currentColor;stroke-width:1.4;}
+
+/* die-cut notch corner — signature element */
+.notch{
+  clip-path: polygon(0 0, calc(100% - var(--notch)) 0, 100% var(--notch), 100% 100%, 0 100%);
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.01ms !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}
+}
+
+/* ============ REVEAL ============ */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+/* ============ HEADER ============ */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  background:transparent;
+  transition:background .25s ease, box-shadow .25s ease, padding .25s ease;
+  padding:18px 0;
+}
+header.solid{
+  background:var(--ink);
+  box-shadow:0 1px 0 rgba(255,255,255,0.08);
+  padding:12px 0;
+}
+.headbar{display:flex;align-items:center;justify-content:space-between;gap:24px;}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;}
+.brand .regmark{color:var(--grid);}
+.brand-text{display:flex;flex-direction:column;line-height:1;}
+.brand-text strong{font-family:'Anton',sans-serif;font-size:22px;letter-spacing:0.02em;color:#fff;}
+.brand-text span{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.12em;color:var(--grid);text-transform:uppercase;margin-top:3px;}
+.brand-logo{height:34px;width:auto;display:block;}
+nav.primary{display:flex;align-items:center;gap:30px;}
+nav.primary a{
+  color:#e9ebe4;font-size:14px;font-weight:500;position:relative;padding:6px 0;
+}
+nav.primary a::after{
+  content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--grid);transition:width .2s ease;
+}
+nav.primary a:hover::after{width:100%;}
+.btn{
+  font-family:'Inter',sans-serif;font-weight:700;font-size:14px;
+  padding:12px 22px;display:inline-flex;align-items:center;gap:8px;border:2px solid transparent;
+  cursor:pointer;transition:transform .15s ease, box-shadow .15s ease;border-radius:3px;
+}
+.btn-primary{background:var(--vinyl);color:#fff;box-shadow:4px 4px 0 rgba(0,0,0,0);}
+.btn-primary:hover{transform:translate(-3px,-3px);box-shadow:4px 4px 0 var(--ink);}
+.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,0.45);}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,0.08);}
+.btn-dark{background:var(--ink);color:#fff;}
+.btn-dark:hover{transform:translate(-3px,-3px);box-shadow:4px 4px 0 var(--grid);}
+.header-cta{display:flex;align-items:center;gap:14px;}
+.menu-toggle{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:6px;}
+
+/* mobile drawer */
+.drawer{
+  position:fixed;inset:0;background:var(--ink);z-index:300;
+  display:flex;flex-direction:column;padding:90px 28px 40px;
+  transform:translateX(100%);transition:transform .3s ease;
+}
+.drawer.open{transform:translateX(0);}
+.drawer a{color:#fff;font-family:'Anton',sans-serif;font-size:28px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.1);}
+.drawer-close{position:absolute;top:24px;right:24px;background:none;border:0;color:#fff;cursor:pointer;}
+
+/* ============ HERO ============ */
+.hero{
+  position:relative;
+  background:var(--mat);
+  background-image:
+    repeating-linear-gradient(0deg, var(--grid-soft) 0 1px, transparent 1px 100px),
+    repeating-linear-gradient(90deg, var(--grid-soft) 0 1px, transparent 1px 100px),
+    repeating-linear-gradient(0deg, rgba(79,209,242,0.12) 0 1px, transparent 1px 20px),
+    repeating-linear-gradient(90deg, rgba(79,209,242,0.12) 0 1px, transparent 1px 20px);
+  padding:150px 0 90px;
+  overflow:hidden;
+  color:#fff;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 60% at 80% 20%, rgba(20,40,34,0) 0%, var(--mat-deep) 85%);
+  pointer-events:none;
+}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+
+.hero h1{
+  font-size:clamp(40px,6vw,76px);
+  line-height:0.98;
+  color:#fff;
+  margin:18px 0 22px;
+}
+.hero h1 .line-accent{color:var(--grid);}
+.hero .eyebrow{color:var(--grid);}
+.hero .eyebrow .regmark{color:var(--grid);}
+.hero p.lead{
+  font-size:18px;line-height:1.55;color:#dfe6e1;max-width:480px;margin-bottom:32px;
+}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:42px;}
+.hero-stats{display:flex;gap:36px;flex-wrap:wrap;}
+.hero-stats div{display:flex;flex-direction:column;gap:4px;}
+.hero-stats strong{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--grid);letter-spacing:0.04em;}
+.hero-stats span{font-size:13px;color:#cfd8d2;}
+
+/* hero brand logo display */
+.hero-logo{position:relative;height:420px;display:flex;align-items:center;justify-content:center;}
+.hero-logo-img{max-width:560px;width:62%;height:auto;filter:drop-shadow(0 24px 48px rgba(0,0,0,0.5));}
+
+/* ============ SECTION SHELL ============ */
+section{padding:96px 0;}
+.section-head{max-width:640px;margin-bottom:56px;}
+.section-head .eyebrow{color:var(--vinyl);margin-bottom:14px;}
+.section-head h2{font-size:clamp(28px,4vw,44px);line-height:1.05;margin-bottom:16px;}
+.section-head p{font-size:16px;color:var(--steel);line-height:1.6;}
+.bg-dark{background:var(--ink);color:#fff;}
+.bg-dark .section-head p{color:#b7bdb8;}
+.bg-paper2{background:var(--paper-2);}
+
+/* ============ SERVICES ============ */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.svc-card{
+  background:var(--paper-2);
+  border:1.5px solid var(--line);
+  padding:28px 26px 26px;
+  display:flex;flex-direction:column;gap:14px;
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  cursor:pointer;
+  border-radius:4px;
+}
+.svc-card:hover{transform:translate(-4px,-4px);box-shadow:6px 6px 0 var(--ink);border-color:var(--ink);}
+.svc-top{display:flex;justify-content:space-between;align-items:flex-start;}
+.svc-ref{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--steel);letter-spacing:0.06em;}
+.svc-dots{display:flex;gap:6px;}
+.svc-dots span{width:10px;height:10px;border-radius:50%;display:block;}
+.svc-card h3{font-size:22px;line-height:1.1;}
+.svc-card p{font-size:14.5px;color:var(--steel);line-height:1.55;}
+.svc-link{
+  margin-top:auto;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12.5px;
+  font-weight:600;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  color:var(--vinyl);
+  background:none;
+  border:none;
+  cursor:pointer;
+  padding:0;
+}
+.svc-link svg{width:14px;height:14px;transition:transform .15s ease;}
+.svc-card:hover .svc-link svg{transform:translateX(4px);}
+
+/* ============ PROCESS ============ */
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
+.proc-grid::before{
+  content:"";position:absolute;top:34px;left:0;right:0;height:1px;background:var(--line);
+}
+.proc-step{position:relative;padding:0 22px;}
+.proc-step:first-child{padding-left:0;}
+.proc-num{
+  width:68px;height:68px;border-radius:50%;background:var(--paper-2);border:2px solid var(--ink);
+  display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:18px;
+  position:relative;z-index:2;margin-bottom:22px;
+}
+.proc-step h4{font-size:16px;margin-bottom:10px;letter-spacing:0.02em;}
+.proc-step p{font-size:14px;color:var(--steel);line-height:1.55;}
+
+/* ============ PORTFOLIO ============ */
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px;}
+.filter-btn{
+  font-family:'IBM Plex Mono',monospace;font-size:12.5px;font-weight:600;letter-spacing:0.03em;
+  padding:9px 16px;border:1.5px solid var(--line);background:var(--paper-2);cursor:pointer;color:var(--steel);
+  transition:all .15s ease;border-radius:3px;
+}
+.filter-btn:hover{border-color:var(--ink);color:var(--ink);}
+.filter-btn.active{background:var(--ink);color:#fff;border-color:var(--ink);}
+.port-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.port-tile{
+  position:relative;aspect-ratio:4/3.1;overflow:hidden;cursor:pointer;
+  transition:transform .2s ease;
+}
+.port-tile:hover{transform:translateY(-5px);}
+.port-pattern{position:absolute;inset:0;}
+.port-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .35s ease;}
+.port-tile:hover .port-photo{transform:scale(1.06);}
+.port-tile{overflow:hidden;}
+.port-tile .tile-label{
+  position:absolute;left:0;right:0;bottom:0;padding:16px 18px;
+  background:linear-gradient(180deg, transparent, rgba(0,0,0,0.65));
+  color:#fff;
+}
+.tile-ref{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--grid);letter-spacing:0.06em;display:block;margin-bottom:4px;}
+.tile-title{font-family:'Anton',sans-serif;font-size:18px;text-transform:uppercase;}
+.port-tile.hide{display:none;}
+
+/* pattern fills */
+
+/* ============ SOBRE / TIMELINE ============ */
+.about-wrap{display:grid;grid-template-columns:0.85fr 1.15fr;gap:60px;align-items:start;}
+.about-stat{display:flex;flex-direction:column;gap:6px;}
+.about-stat .big{font-family:'Anton',sans-serif;font-size:clamp(70px,11vw,128px);line-height:0.85;color:var(--grid);}
+.about-stat .lbl{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.08em;color:#cfd8d2;text-transform:uppercase;}
+.about-copy{color:#dfe6e1;font-size:16px;line-height:1.65;margin-top:18px;}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;}
+.chip{font-family:'IBM Plex Mono',monospace;font-size:12px;border:1px solid rgba(255,255,255,0.3);padding:7px 12px;border-radius:3px;color:#e9ebe4;}
+
+.timeline{position:relative;padding-left:26px;border-left:2px solid rgba(255,255,255,0.18);display:flex;flex-direction:column;gap:30px;}
+.tl-item{position:relative;}
+.tl-item::before{
+  content:"";position:absolute;left:-32px;top:4px;width:11px;height:11px;border-radius:50%;background:var(--vinyl);border:2px solid var(--ink);
+}
+.tl-year{font-family:'IBM Plex Mono',monospace;color:var(--grid);font-size:14px;letter-spacing:0.04em;margin-bottom:6px;display:block;}
+.tl-item h4{font-size:17px;color:#fff;margin-bottom:6px;}
+.tl-item p{font-size:14.5px;color:#c4cbc6;line-height:1.55;}
+
+/* ============ CTA BANNER ============ */
+.cta-banner{
+  background:var(--vinyl);color:#fff;padding:70px 0;
+  background-image:repeating-linear-gradient(135deg, rgba(255,255,255,0.06) 0 2px, transparent 2px 26px);
+}
+.cta-inner{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;}
+.cta-inner h2{font-size:clamp(26px,4vw,40px);max-width:600px;margin-bottom:10px;}
+.cta-inner p{font-size:16px;color:rgba(255,255,255,0.85);}
+.cta-actions{display:flex;gap:14px;flex-wrap:wrap;}
+
+/* ============ CONTACT STRIP ============ */
+.contact-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
+.contact-card{display:flex;gap:16px;align-items:flex-start;}
+.contact-card .icon{width:40px;height:40px;flex:none;border-radius:50%;background:var(--mat);color:var(--grid);display:flex;align-items:center;justify-content:center;}
+.contact-card h4{font-family:'Inter',sans-serif;font-weight:700;font-size:15px;text-transform:none;margin-bottom:6px;}
+.contact-card p, .contact-card a{font-size:14.5px;color:var(--steel);line-height:1.55;}
+.contact-card a:hover{color:var(--vinyl);}
+
+/* ============ CONTATO — JANELA WHATSAPP ============ */
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start;}
+.contact-info{display:flex;flex-direction:column;gap:30px;}
+.contact-info .contact-card{align-items:flex-start;}
+
+.wa-window{
+  background:var(--paper-2);
+  border:1px solid var(--line);
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:8px 8px 0 rgba(10,22,34,0.06);
+}
+.wa-window-bar{
+  display:flex;align-items:center;gap:7px;
+  padding:12px 16px;
+  background:var(--ink);
+}
+.wa-dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.18);}
+.wa-window-title{
+  margin-left:8px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.55);
+}
+.wa-window-head{
+  display:flex;align-items:center;gap:12px;
+  padding:16px 20px;
+  background:var(--mat);
+  border-bottom:1px solid var(--mat-deep);
+}
+.wa-avatar{
+  width:42px;height:42px;border-radius:50%;flex:none;
+  background:#25D366;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Anton',sans-serif;font-size:18px;
+}
+.wa-window-head strong{display:block;color:#fff;font-family:'Inter',sans-serif;font-size:14.5px;font-weight:700;}
+.wa-window-head span{display:block;color:var(--grid);font-size:12px;margin-top:2px;font-family:'IBM Plex Mono',monospace;}
+.wa-window-head span::before{content:"● ";font-size:8px;vertical-align:1px;}
+
+.wa-form{padding:22px 20px 18px;display:flex;flex-direction:column;gap:14px;background:
+  repeating-linear-gradient(180deg, rgba(21,95,209,0.035) 0px, rgba(21,95,209,0.035) 1px, transparent 1px, transparent 34px);
+}
+.wa-field label{
+  display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--steel);margin-bottom:6px;
+}
+.wa-field input,
+.wa-field select,
+.wa-field textarea{
+  width:100%;
+  font-family:'Inter',sans-serif;font-size:14.5px;color:var(--ink);
+  background:#fff;
+  border:1.5px solid var(--line);
+  border-radius:8px;
+  padding:11px 13px;
+  transition:border-color .15s ease, box-shadow .15s ease;
+}
+.wa-field input:focus,
+.wa-field select:focus,
+.wa-field textarea:focus{
+  border-color:var(--vinyl);
+  box-shadow:0 0 0 3px var(--grid-soft);
+}
+.wa-field textarea{resize:vertical;min-height:88px;font-family:'Inter',sans-serif;line-height:1.5;}
+.wa-preview{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--steel);
+  background:rgba(21,95,209,0.05);
+  border:1px dashed var(--line);
+  border-radius:8px;
+  padding:10px 12px;
+  line-height:1.55;
+}
+.wa-preview b{color:var(--ink);}
+.wa-send{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  background:#25D366;color:#fff;border:none;
+  padding:14px 20px;border-radius:8px;
+  font-family:'Inter',sans-serif;font-weight:700;font-size:15px;
+  cursor:pointer;
+  transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.wa-send:hover{background:#1fb959;transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink);}
+.wa-send svg{width:19px;height:19px;flex:none;}
+.wa-note{font-size:12.5px;color:var(--steel-light);text-align:center;padding:0 20px 20px;line-height:1.5;}
+
+@media (max-width:860px){
+  .contact-grid{grid-template-columns:1fr;gap:40px;}
+}
+
+/* ============ FOOTER ============ */
+footer{background:var(--ink);color:#cfd5d0;padding:70px 0 28px;}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;margin-bottom:50px;}
+.foot-brand p{font-size:14px;color:#9aa39d;line-height:1.6;margin:16px 0 20px;max-width:280px;}
+.foot-social{display:flex;gap:10px;}
+.foot-social a{width:36px;height:36px;border:1px solid rgba(255,255,255,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .15s ease;}
+.foot-social a:hover{background:var(--vinyl);border-color:var(--vinyl);}
+.foot-col h5{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;color:var(--grid);text-transform:uppercase;margin-bottom:16px;}
+.foot-col ul li{margin-bottom:10px;}
+.foot-col a{font-size:14px;color:#cfd5d0;}
+.foot-col a:hover{color:#fff;}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.1);font-size:13px;color:#7d877f;}
+.foot-bottom a{color:#9aa39d;}
+.foot-bottom a:hover{color:#fff;}
+
+/* ============ FLOATING WHATSAPP ============ */
+.float-wa{
+  position:fixed;bottom:26px;right:26px;z-index:250;
+  width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;
+  display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,0.3);
+}
+.float-wa::before{
+  content:"";position:absolute;inset:0;border-radius:50%;background:#25D366;opacity:0.5;
+  animation:pulse 2.2s infinite;
+}
+@keyframes pulse{0%{transform:scale(1);opacity:0.5;}70%{transform:scale(1.7);opacity:0;}100%{opacity:0;}}
+
+/* ============ MODAL (JANELA FLUTUANTE) ============ */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-overlay.active {
+  display: flex;
+}
+.modal-box {
+  background: var(--paper-2);
+  max-width: 500px;
+  width: 100%;
+  border-radius: 12px;
+  padding: 32px 30px 28px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  position: relative;
+  animation: fadeSlide 0.25s ease;
+}
+@keyframes fadeSlide {
+  0% { opacity: 0; transform: translateY(24px) scale(0.96); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--steel);
+  line-height: 1;
+  padding: 4px 10px;
+  border-radius: 4px;
+  transition: background 0.15s;
+}
+.modal-close:hover {
+  background: var(--line);
+}
+.modal-box h3 {
+  font-family: 'Anton', sans-serif;
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin: 0 0 4px 0;
+}
+.modal-box .modal-ref {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  color: var(--steel);
+  letter-spacing: 0.06em;
+  margin-bottom: 14px;
+  display: block;
+}
+.modal-box .modal-desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin: 0 0 20px 0;
+}
+.modal-box .modal-cta {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 24px;
+  background: var(--vinyl);
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.modal-box .modal-cta:hover {
+  background: var(--vinyl-dark);
+}
+
+/* ============ IMAGE ZOOM MODAL ============ */
+.zoom-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
+  z-index: 1100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  cursor: zoom-out;
+}
+.zoom-overlay.active {
+  display: flex;
+}
+.zoom-overlay img {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  animation: zoomFade 0.25s ease;
+}
+@keyframes zoomFade {
+  0% { opacity: 0; transform: scale(0.92); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.zoom-close {
+  position: fixed;
+  top: 24px;
+  right: 32px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 40px;
+  cursor: pointer;
+  z-index: 1101;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  line-height: 1;
+}
+.zoom-close:hover {
+  opacity: 1;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:980px){
+  nav.primary{display:none;}
+  .menu-toggle{display:block;}
+  .svc-grid{grid-template-columns:repeat(2,1fr);}
+  .proc-grid{grid-template-columns:repeat(2,1fr);gap:36px 22px;}
+  .proc-grid::before{display:none;}
+  .port-grid{grid-template-columns:repeat(2,1fr);}
+  .hero-grid{grid-template-columns:1fr;}
+  .hero-logo{height:280px;margin-top:30px;}
+  .about-wrap{grid-template-columns:1fr;gap:40px;}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:36px;}
+  .contact-strip{grid-template-columns:1fr;gap:26px;}
+}
+@media (max-width:600px){
+  .wrap{padding:0 20px;}
+  section{padding:70px 0;}
+  .hero{padding:140px 0 80px;}
+  .svc-grid{grid-template-columns:1fr;}
+  .proc-grid{grid-template-columns:1fr;}
+  .port-grid{grid-template-columns:1fr;}
+  .foot-grid{grid-template-columns:1fr;}
+  .cta-inner{flex-direction:column;align-items:flex-start;}
+  .header-cta .btn-primary span.label{display:none;}
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Ir para o conteúdo</a>
+<!-- ============ HEADER ============ -->
+<header id="site-header">
+  <div class="wrap headbar">
+    <a href="#topo" class="brand" aria-label="Silken — início">
+      <img src="https://silken.com.br/images/silken-logo.png" alt="Silken Comunicação Visual" class="brand-logo">
+    </a>
+    <nav class="primary" aria-label="Navegação principal">
+      <a href="#servicos">Serviços</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="header-cta">
+      <button class="menu-toggle" id="menuOpen" aria-label="Abrir menu">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- mobile drawer -->
+<div class="drawer" id="drawer">
+  <button class="drawer-close" id="menuClose" aria-label="Fechar menu">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>
+  </button>
+  <a href="#servicos">Serviços</a>
+  <a href="#processo">Como funciona</a>
+  <a href="#portfolio">Portfólio</a>
+  <a href="#sobre">Sobre</a>
+  <a href="#contato">Contato</a>
+  <a href="https://www.silken.com.br/orcamento.html" target="_blank" rel="noopener" style="color:var(--grid);">Pedir orçamento →</a>
+</div>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="topo">
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <span class="eyebrow" style="color:var(--grid);">Desde 1980</span>
+      <div class="about-stat" style="margin-top:18px;">
+        <span class="big mono">46</span>
+        <span class="lbl">anos de Araçatuba</span>
+      </div>
+      <p class="about-copy">Começamos como Silkscreen, depois Silken Brindes, estampando uniformes. Em 2011 viramos Silken Comunicação Visual, com impressão digital e corte próprios. Hoje seis frentes de produção seguem sob o mesmo teto.</p>
+      <div class="chips">
+        <span class="chip">Produção própria</span>
+        <span class="chip">Sem terceirizar corte</span>
+        <span class="chip">Atendimento seg–sáb</span>
+      </div>
+    </div>
+    <div class="hero-logo">
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVIÇOS ============ -->
+<section id="servicos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">O que fazemos</span>
+      <h2>Seis frentes, uma só equipe.</h2>
+      <p>Cada serviço pede um material, uma técnica e um prazo diferente. Por isso cada projeto passa pela etapa certa —
+        do corte até a instalação — sem terceirizar nada pelo caminho.</p>
+    </div>
+
+    <div class="svc-grid">
+
+      <div class="svc-card" data-modal="modal-comunicacao">
+        <div class="svc-top">
+          <span class="svc-ref mono">REF. CV</span>
+          <div class="svc-dots"><span style="background:var(--vinyl)"></span><span
+              style="background:var(--grid)"></span><span style="background:var(--ink)"></span></div>
+        </div>
+        <h3>Comunicação Visual</h3>
+        <p>Fachadas, letreiros, toldos e placas: sua marca visível de longe e de perto, na rua e na loja.</p>
+        <button class="svc-link" data-modal="modal-comunicacao">Saiba mais <svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.4">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="13 6 19 12 13 18" />
+          </svg></button>
+      </div>
+
+      <div class="svc-card" data-modal="modal-envelopamento">
+        <div class="svc-top">
+          <span class="svc-ref mono">REF. ENV</span>
+          <div class="svc-dots"><span style="background:var(--ink)"></span><span
+              style="background:var(--vinyl)"></span><span
+              style="background:var(--paper-2);border:1px solid var(--line)"></span></div>
+        </div>
+        <h3>Envelopamento</h3>
+        <p>Veículos e eletrodomésticos com adesivagem total ou parcial — a propaganda que roda com você.</p>
+        <button class="svc-link" data-modal="modal-envelopamento">Saiba mais <svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.4">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="13 6 19 12 13 18" />
+          </svg></button>
+      </div>
+
+      <div class="svc-card" data-modal="modal-decoracao">
+        <div class="svc-top">
+          <span class="svc-ref mono">REF. DEC</span>
+          <div class="svc-dots"><span style="background:var(--mat)"></span><span
+              style="background:var(--grid)"></span><span style="background:var(--vinyl)"></span></div>
+        </div>
+        <h3>Decoração</h3>
+        <p>Adesivos decorativos em vidro, parede e vitrine — exclusividade sem precisar reformar.</p>
+        <button class="svc-link" data-modal="modal-decoracao">Saiba mais <svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.4">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="13 6 19 12 13 18" />
+          </svg></button>
+      </div>
+
+      <div class="svc-card" data-modal="modal-grafica">
+        <div class="svc-top">
+          <span class="svc-ref mono">REF. GRF</span>
+          <div class="svc-dots"><span style="background:var(--ink)"></span><span
+              style="background:var(--steel)"></span><span style="background:var(--grid)"></span></div>
+        </div>
+        <h3>Gráfica Rápida</h3>
+        <p>Impressos com qualidade, preço e prazo que cabem no seu orçamento — do cartão ao banner.</p>
+        <button class="svc-link" data-modal="modal-grafica">Saiba mais <svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.4">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="13 6 19 12 13 18" />
+          </svg></button>
+      </div>
+
+      <div class="svc-card" data-modal="modal-pdv">
+        <div class="svc-top">
+          <span class="svc-ref mono">REF. PDV</span>
+          <div class="svc-dots"><span style="background:var(--vinyl)"></span><span
+              style="background:var(--ink)"></span><span style="background:var(--grid)"></span></div>
+        </div>
+        <h3>PDV</h3>
+        <p>Displays e materiais de ponto de venda que conversam com o cliente na hora da compra.</p>
+        <button class="svc-link" data-modal="modal-pdv">Saiba mais <svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.4">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="13 6 19 12 13 18" />
+          </svg></button>
+      </div>
+
+      <div class="svc-card" data-modal="modal-brindes">
+        <div class="svc-top">
+          <span class="svc-ref mono">REF. BRD</span>
+          <div class="svc-dots"><span style="background:var(--grid)"></span><span
+              style="background:var(--vinyl)"></span><span style="background:var(--mat)"></span></div>
+        </div>
+        <h3>Brindes</h3>
+        <p>Canetas, chaveiros, sacolas e copos personalizados pra fidelizar quem já é seu cliente.</p>
+        <button class="svc-link" data-modal="modal-brindes">Saiba mais <svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.4">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="13 6 19 12 13 18" />
+          </svg></button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ PORTFÓLIO ============ -->
+<section id="portfolio">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Portfólio</span>
+      <h2>Um pouco do que sai da nossa oficina.</h2>
+      <p>Filtre por especialidade pra ver o tipo de material e acabamento de cada frente de produção.</p>
+    </div>
+
+    <div class="filters" role="group" aria-label="Filtrar portfólio">
+      <button class="filter-btn active" data-filter="todos">Todos</button>
+      <button class="filter-btn" data-filter="fachadas">Fachadas</button>
+      <button class="filter-btn" data-filter="letreiros">Letreiros</button>
+      <button class="filter-btn" data-filter="envelopamento">Envelopamento</button>
+      <button class="filter-btn" data-filter="decoracao">Decoração</button>
+    </div>
+
+    <div class="port-grid">
+      <!-- Fachadas -->
+      <div class="port-tile notch reveal" data-cat="fachadas" data-img="https://silken.com.br/gallery/IMG_20171018_165625580.png">
+        <img class="port-photo" src="https://silken.com.br/gallery/IMG_20171018_165625580.png" alt="Fachada em ACM com letras em alto-relevo" loading="lazy">
+        <div class="tile-label"><span class="tile-ref mono">REF. FAC-01</span><span class="tile-title">Fachada em ACM</span></div>
+      </div>
+      <div class="port-tile notch reveal" data-cat="fachadas" data-img="https://silken.com.br/gallery/IMG_20180531_144816869_HDR.png">
+        <img class="port-photo" src="https://silken.com.br/gallery/IMG_20180531_144816869_HDR.png" alt="Fachada iluminada à noite" loading="lazy">
+        <div class="tile-label"><span class="tile-ref mono">REF. FAC-02</span><span class="tile-title">Fachada iluminada</span></div>
+      </div>
+      <div class="port-tile notch reveal" data-cat="fachadas" data-img="https://silken.com.br/gallery/IMG_20180527_161253293.png">
+        <img class="port-photo" src="https://silken.com.br/gallery/IMG_20180527_161253293.png" alt="Fachada moderna com iluminação" loading="lazy">
+        <div class="tile-label"><span class="tile-ref mono">REF. FAC-03</span><span class="tile-title">Fachada moderna</span></div>
+      </div>
+
+      <!-- Letreiros -->
+      <div class="port-tile notch reveal" data-cat="letreiros" data-img="https://silken.com.br/gallery/IMG_20180423_113219094_BURST000_COVER_TOP.png">
+        <img class="port-photo" src="https://silken.com.br/gallery/IMG_20180423_113219094_BURST000_COVER_TOP.png" alt="Letreiro em alto-relevo" loading="lazy">
+        <div class="tile-label"><span class="tile-ref mono">REF. LET-01</span><span class="tile-title">Letras em alto-relevo</span></div>
+      </div>
+      <div class="port-tile notch reveal" data-cat="letreiros" data-img="https://silken.com.br/gallery/IMG_20171021_132422202.png">
+        <img class="port-photo" src="https://silken.com.br/gallery/IMG_20171021_132422202.png" alt="Letra caixa com iluminação" loading="lazy">
+        <div class="tile-label"><span class="tile-ref mono">REF. LET-02</span><span class="tile-title">Letra caixa com iluminação</span></div>
+      </div>
+      <div class="port-tile notch reveal" data-cat="letreiros" data-img="https://silken.com.br/gallery/DSCN3851.png">
+        <img class="port-photo" src="https://silken.com.br/gallery/DSCN3851.png" alt="Letra caixa alto-relevo sobre painel de madeira" loading="lazy">
+        <div class="tile-label"><span class="tile-ref mono">REF. LET-03</span><span class="tile-title">Letra caixa alto-relevo</span></div>
+      </div>
+
+      <!-- Envelopamentos -->
+      <div class="port-tile notch reveal" data-cat="envelopamento" data-img="https://silken.com.br/gallery/IMG_20171204_191526720.png">
+        <img class="port-photo" src="https://silken.com.br/gallery/IMG_20171204_191526720.png" alt="Carro com adesivagem personalizada" loading="lazy">
+        <div class="tile-label"><span class="tile-ref mono">REF. ENV-01</span><span class="tile-title">Carro adesivado</span></div>
+      </div>
+      <div class="port-tile notch reveal" data-cat="envelopamento" data-img="https://silken.com.br/gallery/IMG_20171027_170152985.png">
+        <img class="port-photo" src="https://silken.com.br/gallery/IMG_20171027_170152985.png" alt="Embarcação personalizada" loading="lazy">
+        <div class="tile-label"><span class="tile-ref mono">REF. ENV-02</span><span class="tile-title">Embarcação personalizada</span></div>
+      </div>
+      <div class="port-tile notch reveal" data-cat="envelopamento" data-img="https://silken.com.br/gallery/IMG_20140820_120351143_HDR.png">
+        <img class="port-photo" src="https://silken.com.br/gallery/IMG_20140820_120351143_HDR.png" alt="Ônibus envelopado" loading="lazy">
+        <div class="tile-label"><span class="tile-ref mono">REF. ENV-03</span><span class="tile-title">Ônibus envelopado</span></div>
+      </div>
+
+      <!-- Decorações -->
+      <div class="port-tile notch reveal" data-cat="decoracao" data-img="https://silken.com.br/gallery/1-piu-piu_eclf56rp.png">
+        <img class="port-photo" src="https://silken.com.br/gallery/1-piu-piu_eclf56rp.png" alt="Vitrine com adesivo decorativo" loading="lazy">
+        <div class="tile-label"><span class="tile-ref mono">REF. DEC-01</span><span class="tile-title">Vitrine adesivada</span></div>
+      </div>
+      <div class="port-tile notch reveal" data-cat="decoracao" data-img="https://silken.com.br/gallery/IMG_20140710_161212147_mtighe1n.png">
+        <img class="port-photo" src="https://silken.com.br/gallery/IMG_20140710_161212147_mtighe1n.png" alt="Adesivo em vidro de fachada" loading="lazy">
+        <div class="tile-label"><span class="tile-ref mono">REF. DEC-02</span><span class="tile-title">Adesivo em vidro</span></div>
+      </div>
+      <div class="port-tile notch reveal" data-cat="decoracao" data-img="https://silken.com.br/gallery/2013-09-27-12_1ii6v55t.12.10.png">
+        <img class="port-photo" src="https://silken.com.br/gallery/2013-09-27-12_1ii6v55t.12.10.png" alt="Painel decorativo para ponto de venda" loading="lazy">
+        <div class="tile-label"><span class="tile-ref mono">REF. DEC-03</span><span class="tile-title">Painel decorativo PDV</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTATO ============ -->
+<section id="contato">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Contato</span>
+      <h2>Fala com a gente.</h2>
+      <p>Segunda a sexta, 8h30 às 18h. Sábado, 8h30 às 12h. Preencha ao lado e continue a conversa direto no seu WhatsApp.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-card reveal">
+          <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          <div>
+            <h4>Telefone / WhatsApp</h4>
+            <a href="https://wa.me/551836241907" target="_blank" rel="noopener">(18) 3624-1907</a><br>
+            <a href="mailto:contato@silken.com.br">contato@silken.com.br</a>
+          </div>
+        </div>
+        <div class="contact-card reveal">
+          <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <div>
+            <h4>Endereço</h4>
+            <p>Rua Marcílio Dias, 191 — São Joaquim<br>Araçatuba-SP — CEP 16050-233</p>
+          </div>
+        </div>
+        <div class="contact-card reveal">
+          <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+          <div>
+            <h4>Horário de atendimento</h4>
+            <p>Segunda a sexta: 8h30 – 18h00<br>Sábado: 8h30 – 12h00</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="wa-window reveal">
+        <div class="wa-window-bar">
+          <span class="wa-dot"></span><span class="wa-dot"></span><span class="wa-dot"></span>
+          <span class="wa-window-title">Mensagem rápida</span>
+        </div>
+        <div class="wa-window-head">
+          <div class="wa-avatar">S</div>
+          <div>
+            <strong>Silken Comunicação Visual</strong>
+            <span>Responde no WhatsApp</span>
+          </div>
+        </div>
+        <form class="wa-form" id="waForm">
+          <div class="wa-field">
+            <label for="waNome">Seu nome</label>
+            <input type="text" id="waNome" name="waNome" placeholder="Como podemos te chamar?" required>
+          </div>
+          <div class="wa-field">
+            <label for="waAssunto">Assunto</label>
+            <select id="waAssunto" name="waAssunto">
+              <option value="Orçamento">Orçamento</option>
+              <option value="Fachadas e comunicação visual">Fachadas e comunicação visual</option>
+              <option value="Envelopamento">Envelopamento</option>
+              <option value="Decoração de ambientes">Decoração de ambientes</option>
+              <option value="Gráfica e serigrafia">Gráfica e serigrafia</option>
+              <option value="Brindes personalizados">Brindes personalizados</option>
+              <option value="Outro assunto">Outro assunto</option>
+            </select>
+          </div>
+          <div class="wa-field">
+            <label for="waMsg">Mensagem</label>
+            <textarea id="waMsg" name="waMsg" placeholder="Conte pra gente o que você precisa..."></textarea>
+          </div>
+          <button type="submit" class="wa-send">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.6 1.43 5.16L2 22l5.07-1.5a9.9 9.9 0 0 0 4.97 1.34c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.1c-.24.68-1.41 1.3-1.94 1.38-.5.08-1.13.11-1.82-.11-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.8-4.16-4.94-4.35-.15-.19-1.18-1.57-1.18-2.99 0-1.42.74-2.11 1-2.4.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.14.07.15.12.32.02.51-.1.19-.15.31-.3.48-.15.17-.31.38-.45.51-.15.14-.3.29-.13.58.17.29.77 1.27 1.65 2.06 1.14 1.02 2.1 1.34 2.4 1.49.3.15.47.13.65-.05.18-.18.74-.86.94-1.16.2-.3.4-.25.66-.15.27.1 1.69.8 1.98.94.29.14.48.21.55.33.07.12.07.69-.17 1.37z"/></svg>
+            Enviar no WhatsApp
+          </button>
+        </form>
+        <p class="wa-note">Ao enviar, abrimos o WhatsApp com sua mensagem já pronta — é só confirmar o envio por lá e a conversa continua direto no seu número.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#topo" class="brand">
+          <img src="https://silken.com.br/images/silken-logo.png" alt="Silken Comunicação Visual" class="brand-logo" style="height:38px;">
+        </a>
+        <p>Comunicação visual, envelopamento, decoração, gráfica, serigrafia e brindes em Araçatuba-SP desde 1980.</p>
+        <div class="foot-social">
+          <a href="https://www.instagram.com/silken.cv/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="https://www.facebook.com/silkencomunicacaovisual" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://wa.me/551836241907" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>Fale com a gente</h5>
+        <ul>
+          <li><a href="https://wa.me/551836241907" target="_blank" rel="noopener">(18) 3624-1907</a></li>
+          <li><a href="mailto:contato@silken.com.br">contato@silken.com.br</a></li>
+          <li><a href="https://www.instagram.com/silken.cv/">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Silken Comunicação Visual — Todos os direitos reservados.</span>
+      <span class="mono">Araçatuba-SP · Desde 1980</span>
+    </div>
+  </div>
+</footer>
+
+<a class="float-wa" href="https://wa.me/551836241907" target="_blank" rel="noopener" aria-label="Falar no WhatsApp" style="position:fixed;">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" style="position:relative;"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.6 1.43 5.16L2 22l5.07-1.5a9.9 9.9 0 0 0 4.97 1.34c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.1c-.24.68-1.41 1.3-1.94 1.38-.5.08-1.13.11-1.82-.11-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.8-4.16-4.94-4.35-.15-.19-1.18-1.57-1.18-2.99 0-1.42.74-2.11 1-2.4.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.14.07.15.12.32.02.51-.1.19-.15.31-.3.48-.15.17-.31.38-.45.51-.15.14-.3.29-.13.58.17.29.77 1.27 1.65 2.06 1.14 1.02 2.1 1.34 2.4 1.49.3.15.47.13.65-.05.18-.18.74-.86.94-1.16.2-.3.4-.25.66-.15.27.1 1.69.8 1.98.94.29.14.48.21.55.33.07.12.07.69-.17 1.37z"/></svg>
+</a>
+<!-- Botão Flutuante do Instagram (Fica em cima do WhatsApp) -->
+<a class="float-insta" href="https://www.instagram.com/silken.cv/" target="_blank" rel="noopener" aria-label="Siga no Instagram">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+  </svg>
+</a>
+
+<style>
+.float-insta {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 95px;
+  right: 20px;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.float-insta:hover {
+  transform: scale(1.1);
+}
+</style>
+
+<!-- ========== ZOOM OVERLAY ========== -->
+<div class="zoom-overlay" id="zoomOverlay">
+  <button class="zoom-close" id="zoomClose">✕</button>
+  <img id="zoomImage" src="" alt="Imagem ampliada">
+</div>
+
+<script>
+// header solid on scroll
+const header = document.getElementById('site-header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('solid', window.scrollY > 40);
+});
+
+// mobile drawer
+const drawer = document.getElementById('drawer');
+document.getElementById('menuOpen').addEventListener('click', () => drawer.classList.add('open'));
+document.getElementById('menuClose').addEventListener('click', () => drawer.classList.remove('open'));
+drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => drawer.classList.remove('open')));
+
+// scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+revealEls.forEach(el => io.observe(el));
+
+// portfolio filter
+const filterBtns = document.querySelectorAll('.filter-btn');
+const tiles = document.querySelectorAll('.port-tile');
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    tiles.forEach(t => {
+      t.classList.toggle('hide', f !== 'todos' && t.dataset.cat !== f);
+    });
+  });
+});
+
+// ========== MODAIS (JavaScript) ==========
+document.addEventListener('DOMContentLoaded', function() {
+  const triggers = document.querySelectorAll('[data-modal]');
+  const overlays = document.querySelectorAll('.modal-overlay');
+
+  function openModal(id) {
+    const modal = document.getElementById(id);
+    if (modal) modal.classList.add('active');
+  }
+
+  function closeModal(id) {
+    const modal = document.getElementById(id);
+    if (modal) modal.classList.remove('active');
+  }
+
+  // Triggers: cards e botões "Saiba mais"
+  triggers.forEach(el => {
+    el.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const modalId = this.dataset.modal;
+      if (modalId) openModal(modalId);
+    });
+  });
+
+  // Fechar com botão X
+  document.querySelectorAll('.modal-close').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const modalId = this.dataset.close;
+      closeModal(modalId);
+    });
+  });
+
+  // Fechar clicando no overlay (fundo escuro)
+  overlays.forEach(overlay => {
+    overlay.addEventListener('click', function(e) {
+      if (e.target === this) {
+        this.classList.remove('active');
+      }
+    });
+  });
+
+  // Fechar com tecla ESC
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      overlays.forEach(o => o.classList.remove('active'));
+    }
+  });
+});
+
+// ============ JANELA DE MENSAGEM -> WHATSAPP ============
+(function(){
+  var waForm = document.getElementById('waForm');
+  if (!waForm) return;
+  var waNumero = '5518997175990';
+
+  waForm.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    var nome = document.getElementById('waNome').value.trim();
+    var assunto = document.getElementById('waAssunto').value;
+    var msg = document.getElementById('waMsg').value.trim();
+
+    var texto = 'Olá, Silken! Meu nome é ' + nome + '.';
+    texto += '\nAssunto: ' + assunto + '.';
+    texto += msg ? ('\n\n' + msg) : '\n\nGostaria de mais informações, por favor.';
+
+    var url = 'https://wa.me/' + waNumero + '?text=' + encodeURIComponent(texto);
+    window.open(url, '_blank', 'noopener');
+  });
+})();
+
+// ============ ZOOM NAS IMAGENS DO PORTFÓLIO ============
+document.addEventListener('DOMContentLoaded', function() {
+  const zoomOverlay = document.getElementById('zoomOverlay');
+  const zoomImage = document.getElementById('zoomImage');
+  const zoomClose = document.getElementById('zoomClose');
+
+  function openZoom(src) {
+    zoomImage.src = src;
+    zoomOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeZoom() {
+    zoomOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Adiciona evento de clique em cada tile do portfólio
+  document.querySelectorAll('.port-tile').forEach(tile => {
+    tile.addEventListener('click', function(e) {
+      // Impede que o clique no tile dispare o zoom se o clique veio do botão de filtro ou de um elemento filho que não deve ativar
+      const imgSrc = this.dataset.img;
+      if (imgSrc) {
+        openZoom(imgSrc);
+      }
+    });
+  });
+
+  // Fechar ao clicar no overlay (fundo escuro)
+  zoomOverlay.addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeZoom();
+    }
+  });
+
+  // Fechar com o botão X
+  zoomClose.addEventListener('click', function(e) {
+    e.stopPropagation();
+    closeZoom();
+  });
+
+  // Fechar com tecla ESC
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && zoomOverlay.classList.contains('active')) {
+      closeZoom();
+    }
+  });
+});
+</script>
+<!-- ========== MODAIS (JANELAS FLUTUANTES) ========== -->
+
+<!-- MODAL COMUNICAÇÃO VISUAL -->
+<div class="modal-overlay" id="modal-comunicacao">
+  <div class="modal-box">
+    <button class="modal-close" data-close="modal-comunicacao">✕</button>
+    <h3>Comunicação Visual</h3>
+    <span class="modal-ref mono">REF. CV</span>
+    <p class="modal-desc"><strong>Fachadas, letreiros, toldos e placas</strong> — sua marca visível de longe e de perto, na rua e na loja. Trabalhamos com ACM, letras caixa, iluminação LED e muito mais para valorizar seu negócio.</p>
+    <a href="https://wa.me/551836241907" target="_blank" rel="noopener" class="modal-cta">Faça um orçamento conosco →</a>
+  </div>
+</div>
+
+<!-- MODAL ENVELOPAMENTO -->
+<div class="modal-overlay" id="modal-envelopamento">
+  <div class="modal-box">
+    <button class="modal-close" data-close="modal-envelopamento">✕</button>
+    <h3>Envelopamento</h3>
+    <span class="modal-ref mono">REF. ENV</span>
+    <p class="modal-desc"><strong>Veículos e eletrodomésticos</strong> com adesivagem total ou parcial — a propaganda que roda com você. Envelopamos carros, furgões, motos, geladeiras e muito mais com qualidade e durabilidade.</p>
+    <a href="https://wa.me/551836241907" target="_blank" rel="noopener" class="modal-cta">Faça um orçamento conosco →</a>
+  </div>
+</div>
+
+<!-- MODAL DECORAÇÃO -->
+<div class="modal-overlay" id="modal-decoracao">
+  <div class="modal-box">
+    <button class="modal-close" data-close="modal-decoracao">✕</button>
+    <h3>Decoração</h3>
+    <span class="modal-ref mono">REF. DEC</span>
+    <p class="modal-desc"><strong>Adesivos decorativos em vidro, parede e vitrine</strong> — exclusividade sem precisar reformar. Perfurados, vinil, cortina de luz e papel de parede para ambientes comerciais e residenciais.</p>
+    <a href="https://wa.me/551836241907" target="_blank" rel="noopener" class="modal-cta">Faça um orçamento conosco →</a>
+  </div>
+</div>
+
+<!-- MODAL GRÁFICA RÁPIDA -->
+<div class="modal-overlay" id="modal-grafica">
+  <div class="modal-box">
+    <button class="modal-close" data-close="modal-grafica">✕</button>
+    <h3>Gráfica Rápida</h3>
+    <span class="modal-ref mono">REF. GRF</span>
+    <p class="modal-desc"><strong>Impressos com qualidade, preço e prazo</strong> que cabem no seu orçamento — do cartão ao banner. Flyers, cartazes, pastas, blocos, envelopes e muito mais com acabamento impecável.</p>
+    <a href="https://wa.me/551836241907" target="_blank" rel="noopener" class="modal-cta">Faça um orçamento conosco →</a>
+  </div>
+</div>
+
+<!-- MODAL PDV -->
+<div class="modal-overlay" id="modal-pdv">
+  <div class="modal-box">
+    <button class="modal-close" data-close="modal-pdv">✕</button>
+    <h3>PDV</h3>
+    <span class="modal-ref mono">REF. PDV</span>
+    <p class="modal-desc"><strong>Displays e materiais de ponto de venda</strong> que conversam com o cliente na hora da compra. Expositores, gondolas, totens, displays de balcão e sinalização para lojas.</p>
+    <a href="https://wa.me/551836241907" target="_blank" rel="noopener" class="modal-cta">Faça um orçamento conosco →</a>
+  </div>
+</div>
+
+<!-- MODAL BRINDES -->
+<div class="modal-overlay" id="modal-brindes">
+  <div class="modal-box">
+    <button class="modal-close" data-close="modal-brindes">✕</button>
+    <h3>Brindes</h3>
+    <span class="modal-ref mono">REF. BRD</span>
+    <p class="modal-desc"><strong>Canetas, chaveiros, sacolas e copos personalizados</strong> pra fidelizar quem já é seu cliente. Brindes promocionais com a sua marca para eventos, feiras e campanhas.</p>
+    <a href="https://wa.me/551836241907" target="_blank" rel="noopener" class="modal-cta">Faça um orçamento conosco →</a>
+  </div>
+</div>
+</body>
+</html>
